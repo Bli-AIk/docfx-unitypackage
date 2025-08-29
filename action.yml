@@ -113,6 +113,12 @@ runs:
         echo $content >> $GITHUB_ENV
         echo 'EOF' >> $GITHUB_ENV
 
+    - name: Clone custom theme
+      shell: bash
+      run: |
+        git clone https://github.com/AdamCarballo/UnityDocFX.git .
+
+
     - name: Generate docfx.json
       shell: bash
       env:
@@ -149,7 +155,7 @@ runs:
                     {"src": "manual", "files": ["**/*.md"], "dest": "manual"}
                 ],
                 "resource": [{"files": ["manual/images/*"]}],
-                "template": ["default", "modern"],
+                "template": ["default", "styles"],
                 "sitemap": {"baseUrl": "'$url'"},
                 "xref": ["'$url'"],
                 "xrefService": ["https://xref.docs.microsoft.com/query?uid={uid}"],
