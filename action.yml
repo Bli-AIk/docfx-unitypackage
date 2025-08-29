@@ -117,9 +117,8 @@ runs:
       shell: bash
       run: |
         git clone https://github.com/AdamCarballo/UnityDocFX.git
-        mv UnityDocFX/.git .
         mv UnityDocFX/* .
-        rmdir UnityDocFX
+        rm -rf UnityDocFX
 
     - name: Generate docfx.json
       shell: bash
