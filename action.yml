@@ -113,11 +113,13 @@ runs:
         echo $content >> $GITHUB_ENV
         echo 'EOF' >> $GITHUB_ENV
 
-    - name: Clone custom theme
+    - name: Clone custom theme without folder
       shell: bash
       run: |
-        git clone https://github.com/AdamCarballo/UnityDocFX.git .
-
+        git clone https://github.com/AdamCarballo/UnityDocFX.git
+        mv UnityDocFX/.git .
+        mv UnityDocFX/* .
+        rmdir UnityDocFX
 
     - name: Generate docfx.json
       shell: bash
